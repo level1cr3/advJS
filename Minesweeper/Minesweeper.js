@@ -69,3 +69,45 @@ function getRandomNumber(max) {
 function positionMatch(a, b) {
   return a.x === b.x && a.y === b.y;
 }
+
+export function markTile(tile) {
+  if (tile.status !== TILE_STATUS.HIDDEN && tile.status !== TILE_STATUS.MARKED)
+    return;
+
+  tile.status =
+    tile.status === TILE_STATUS.HIDDEN
+      ? TILE_STATUS.MARKED
+      : TILE_STATUS.HIDDEN;
+}
+
+export function revealTile(board, tile) {
+  if (tile.status !== TILE_STATUS.HIDDEN) return;
+
+  if (tile.mine) {
+    tile.status = TILE_STATUS.MINE;
+    return;
+  }
+
+  tile.status = TILE_STATUS.NUMBER;
+  const adjacentTile = nearbyTiles(board, tile);
+  const mines = adjacentTile.filter((t) => t.mine);
+
+  if (mines.length === 0) {
+    adjacentTile.forEach(revealTile.bind(null, board));
+  } else {
+    tile.element.textContent = mines.length;
+  }
+}
+
+function nearbyTiles(board, { x, y }) {
+  const tiles = [];
+
+  for (let xOffset = -1; xOffset <= 1; xOffset++)
+    for (let yOffset = -1; yOffset <= 1; yOffset++) {
+      const tile = board[x + xOffset]?.[y + yOffset];
+
+      if (tile) tiles.push(tile);
+    }
+
+  return tiles;
+}
