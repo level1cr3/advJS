@@ -36,11 +36,61 @@ const boardElement = document.querySelector(".board");
 const mineLeftText = document.querySelector("[data-mine-count]");
 const messageText = document.querySelector(".subtext");
 
+boardElement.style.setProperty("--size", BOARD_SIZE);
+mineLeftText.textContent = NUMBER_OF_MINES;
+
 board.forEach((row) => {
   row.forEach((tile) => {
-    boardElement.appendChild(tile.element);
+    const { element } = tile;
+    boardElement.appendChild(element);
+
+    element.addEventListener("click", () => {
+      revealTile(board, tile);
+      checkGameEnd();
+    });
+
+    element.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      markTile(tile);
+      listMinesLeft();
+    });
   });
 });
 
-boardElement.style.setProperty("--size", BOARD_SIZE);
-mineLeftText.textContent = NUMBER_OF_MINES;
+function checkGameEnd() {
+  const win = checkWin(board);
+  const lose = checkLose(board);
+
+  if (win || lose) {
+    boardElement.addEventListener("click", stopPropagation, { capture: true });
+    boardElement.addEventListener("contextmenu", stopPropagation, {
+      capture: true,
+    });
+  }
+
+  if (win) messageText.textContent = "You Win";
+
+  if (lose) {
+    messageText.textContent = "You Lose";
+    board.forEach((row) => {
+      row.forEach((tile) => {
+        if (tile.status === TILE_STATUS.MARKED) markTile(tile);
+        if (tile.mine) revealTile(board, tile);
+      });
+    });
+  }
+}
+
+function stopPropagation(e) {
+  e.stopImmediatePropagation();
+}
+
+function listMinesLeft() {
+  const markedTilesCount = board.reduce((count, row) => {
+    return (
+      count + row.filter((tile) => tile.status === TILE_STATUS.MARKED).length
+    );
+  }, 0);
+
+  mineLeftText.textContent = NUMBER_OF_MINES - markedTilesCount;
+}
