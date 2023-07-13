@@ -1,0 +1,25 @@
+# types of testing.
+
+> Unit testing : in unit testing we test the one unit. like a single function. like sum function or the getLargestFunc. 
+                for testing the function that uses api. we use the mock data for api. So we can test the actual code and not worry about
+                the api. Pure function are every easy to unit test. because for given the same input they will alway return the same 
+                output.
+
+                > these are the most amount of test.
+
+
+
+> integration testing : it is similar to unit testing But instead of testing one small unit of work. it is going to be testing 
+                        overall general concept. like hey does my entire shopping cart workflow work.
+                        example : in integration testing we are going to make the fetch request instead of faking it. we integrating 
+                        all these different pieces together.
+
+                        so we are not just testing that whether this function works. we are also whether this function works when it 
+                        is communicating with other functions. like when everything comes together is it going to work.
+
+                    > less then unit test and more then end to end test.
+                    
+
+ > end to end test : they are similar to manual testing but it is automated. 
+
+                    > you usually have very few end to end test.             

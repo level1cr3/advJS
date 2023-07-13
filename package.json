@@ -1,16 +1,19 @@
 {
   "dependencies": {
+    "@types/jest": "^29.5.3",
     "lodash": "^4.17.21"
   },
   "name": "advjs",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "jest": "^29.6.1",
     "parcel": "^2.9.3"
   },
   "scripts": {
     "build": "parcel build MinesweeperFP/index.html",
-    "start": "parcel MinesweeperFP/index.html"
+    "start": "parcel MinesweeperFP/index.html",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
