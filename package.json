@@ -13,7 +13,9 @@
   "scripts": {
     "build": "parcel build MinesweeperFP/index.html",
     "start": "parcel MinesweeperFP/index.html",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:unit": "jest \\.unit\\. --coverage",
+    "test:int": "jest \\.int\\. --coverage"
   },
   "repository": {
     "type": "git",
