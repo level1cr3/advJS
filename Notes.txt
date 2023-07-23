@@ -1,0 +1,2 @@
+we use jest for unit and integration testing.
+we use cypress for end to end testing.

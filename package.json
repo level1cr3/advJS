@@ -7,15 +7,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "cypress": "^12.17.2",
     "jest": "^29.6.1",
-    "parcel": "^2.9.3"
+    "parcel": "^2.9.3",
+    "serve": "^14.2.0",
+    "start-server-and-test": "^2.0.0"
   },
   "scripts": {
     "build": "parcel build MinesweeperFP/index.html",
     "start": "parcel MinesweeperFP/index.html",
     "test": "jest --coverage",
     "test:unit": "jest \\.unit\\. --coverage",
-    "test:int": "jest \\.int\\. --coverage"
+    "test:int": "jest \\.int\\. --coverage",
+    "cy:open": "cypress open",
+    "serve": "serve",
+    "test:e2e": "start-server-and-test serve http://localhost:3000/calculatorOOP cy:open"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,5 @@
-import { Calculator } from "./calculator.js";
+//import { calculator } from "./calculator.js"; // named imports.
+import Calculator from "./calculator.js"; // default import
 
 const calculatorGrid = document.querySelector(".calculator-grid");
 const primaryOperandDisplay = document.querySelector("[data-primary-operand]");
