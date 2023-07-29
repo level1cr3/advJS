@@ -1,2 +1,73 @@
 we use jest for unit and integration testing.
 we use cypress for end to end testing.
+
+# Test driven development (TDD) : in this we first write and test. and then we start writing the code that will make the test. pass
+
+> generally we write code first. and then we write the test for that code. but in TDD we flip that. that is test then code.
+
+> the idea of test driven development is that by writing your test first. you are thinking about the different edge cases that you 
+have to code around. you are also thinking how you are going to implement this so that it is easy to test.
+
+> generally if you do test driven development your code is going to be more organized. it's gonna check more of the edge cases. and 
+it is going to more easier to test in general.
+
+
+
+
+# but generally when you larger more ambiguous kind of requirement it is difficult to do TDD. So code first and then test. or 
+else you would be wasting time writing test that are not required.
+
+# thinking about the edge cases of your code before you write it is great.
+
+# thinking about how to test your code while you are writing your code will also make your code easier to test.
+
+# Do TDD when you have concrete requirement.
+
+===========================================================
+
+# How to know what to test and when to test ?
+
+    #> scenario 1 : is adding code to an existing codebase or fixing/modifying code in codebase 
+
+        # If you have bug in a code what should you do when it comes to testing.
+        > write a test every time you fix a bug. to make sure bug doesn't occur. this where the TDD will help you write your code 
+        quicker. TDD is great when you are solving a bug or broken piece of code
+
+        > 'generally' when you are solving a bug the test that you are going to write is a 'Unit test'
+
+
+    # modifying code or refactoring code that already exists 
+    scenario 1 : there is already test for this : this is great. now you could add to these test if they are missing something.
+
+    scenario 2 : there is no test : In this situation you should write a test. to make sure you don't accidentally break a code.
+    > so you write test before you refactor it make sure everything works and after refactoring run test again to check if it 
+    works properly or not.    
+
+
+
+    # add code to existing code base
+    > add test to the code.
+
+
+ # what do i actually test ?   
+ > write unit test to cover the edge cases and branches(if else) in the code. test your failure and success conditions
+   your unit test should be broadly covering all the functionality of that one unit of work
+
+> integration test should be written for connecting the different modules of your code. we don't worry about edges cases here.
+we just test if things communicating well here.
+
+> end to end test you should write the least amount of these. but they are important because they test what the user experience is like
+
+
+> for e-commerce code
+
+    > your shopping cart code.
+    > your checkout workflow.
+    > all the stuff around payments.
+
+> your all test should be compiled around all these core features.
+
+> when these are done then you can move the secondary features and so on.
+
+
+# just continuously add the test to the project as you go.
