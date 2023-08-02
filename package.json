@@ -7,6 +7,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "cypress": "^12.17.2",
     "jest": "^29.6.1",
     "parcel": "^2.9.3",
@@ -16,7 +18,7 @@
   "scripts": {
     "build": "parcel build MinesweeperFP/index.html",
     "start": "parcel MinesweeperFP/index.html",
-    "test": "jest --coverage",
+    "test": "jest ./math-solver/parse.unit.test.js --coverage",
     "test:unit": "jest \\.unit\\. --coverage",
     "test:int": "jest \\.int\\. --coverage",
     "cy:open": "cypress open",
