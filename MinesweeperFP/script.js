@@ -9,16 +9,20 @@ import {
   checkLose,
   positionMatch,
   markedTilesCount,
-  markedTilesCount,
 } from "./Minesweeper.js";
 
-const BOARD_SIZE = 10;
-const NUMBER_OF_MINES = 5;
+// for cypress testing
+let testBoard;
+if (process.env.NODE_ENV !== "production" && window.testBoard) {
+  testBoard = window.testBoard;
+}
 
-let board = createBoard(
-  BOARD_SIZE,
-  getMinePositions(BOARD_SIZE, NUMBER_OF_MINES)
-);
+const BOARD_SIZE = testBoard?.length ?? 3;
+const NUMBER_OF_MINES = testBoard?.flat().filter((t) => t.mine).length ?? 1;
+
+let board =
+  testBoard ??
+  createBoard(BOARD_SIZE, getMinePositions(BOARD_SIZE, NUMBER_OF_MINES));
 
 const boardElement = document.querySelector(".board");
 const mineLeftText = document.querySelector("[data-mine-count]");

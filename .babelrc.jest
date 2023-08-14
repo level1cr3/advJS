@@ -1,0 +1,3 @@
+{
+  "presets": ["@babel/preset-env"] // i need this for using import in jest. basically using ES6 modules.
+}

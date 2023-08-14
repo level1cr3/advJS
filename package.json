@@ -18,12 +18,12 @@
   "scripts": {
     "build": "parcel build MinesweeperFP/index.html",
     "start": "parcel MinesweeperFP/index.html",
-    "test": "jest ./math-solver/parse.unit.test.js --coverage",
+    "test": "jest ./MinesweeperFP/minesweeper.unit.test.js --coverage",
     "test:unit": "jest \\.unit\\. --coverage",
     "test:int": "jest \\.int\\. --coverage",
     "cy:open": "cypress open",
     "serve": "serve",
-    "test:e2e": "start-server-and-test serve http://localhost:3000/calculatorOOP cy:open"
+    "test:e2e": "start-server-and-test start http://localhost:1234/ cy:open"
   },
   "repository": {
     "type": "git",
