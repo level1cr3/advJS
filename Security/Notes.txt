@@ -1,0 +1,118 @@
+# NPM Audit :
+> when we install any package using npm. it is installed and mentioned in json.package.
+
+ex:  "dependencies": {
+        "express": "^4.18.2"
+        }
+
+> Now these package version is 4.18.2 
+> these version indicates (major.minor.patch) changes to the package.
+> 4 -> major change.
+> 18 -> minor change.
+> 2 -> is patch.
+
+> patch is something like fixing a bug. updating a patch version won't break your existing code.
+> updating the 'minor change' will also not break your existing code.
+> But updating the 'major change' will break your code. So before updating the major change you should see the release notes of that 
+update so you know what are the things that are being changed. and this is where having the lots of tests comes in handy.
+Because with that you can quickly check what are the things that have the breaking changes.
+
+
+> The version would be written in these different formats.
+
+>  4.18.2 : exact this version will be installed.
+> ^4.18.2 : allows for easy upgrade of minor changes, patch.
+> ~4.18.2 : allows only patch to be updated.
+
+
+> we can use "NPM audit" command to see the vulnerability in the packages.
+> we can use "NPM audit fix" to fix these issues it will take you to the latest minor changes and patch update.
+> we can use "NPM audit fix --force" will take you the latest version.(not recommended) as it will break your code.
+> we can use "NPM list" command to see the current installed version.
+> we can use "NPM outdated" command to see latest available updates for the package.
+
+
+==============================================================================================
+
+# cross site scripting
+
+> we should not let users directly enter the "html or js" in our site.
+Example : let say we are using input tag and taking content inside it and pasting them somewhere. and we are using
+"InnerHTML" to do this.
+    well in that case the user can write the js code inside the html tag. like this 
+    <img src="" onerror="PostToAPI(Document.cookies)" />
+    and then send this link to users to steal there info.
+
+> so we should not use "InnerHTML". Not in a way where a user can interact with it.    
+
+> And don't use the "eval()". it takes argument and runs js on them.
+
+
+===========================================================================================================================
+
+# Sanitize user input. 
+
+> there some instance where you maybe want to allow user to create html input. 
+  But you don't wanna allow them to do the cross site scripting.
+
+> This is where sanitizing the user input is very important.
+
+> there is a library for sanitizing users input html called 'Sanitize-html'.
+
+> another common security issue is 'SQL injection'. if you have sql db you write sql code to access that db. if you have user
+input that gets put into sql command that runs in the db. they could write sql injection 
+'ex : SELECT password FROM User; so you need to sanitize this by converting it to string so it doesn't run as a command in your db.
+
+> just don't use the InnerHTML and eval. but if you have to use them and there is no other option you have to sanitize them.
+
+
+=============================================================================================
+# all your code is public
+
+> don't put your private information like 'API Key' in front-end of your application. Because all your  code is public.
+
+> what you generally wanna do here is save the information in server inside '.env' file. and you call that files fields to
+access that value in server-side. and your frontend calls your server to access the data.
+
+> similar to how you save the private info in app-settings.json in asp.net 
+
+> and you never commit that file in to github.
+
+> same thing with user information's.
+
+> and if you ever need to store a password. you need to store it as an hashed value.
+
+
+=======================================================================================================
+# never trust information coming from the client.
+  because user can edit our client side code. he can bypass our client side validation. 
+
+> you should always have validation for client-side as well as server-side mainly server side.  
+
+
+
+=========================================================================================================
+# cookies
+
+> how to add more security around your cookies.
+
+> cookies work in two ways ?
+1. You can set them on the client ? (and they will communicated back and forth between client and server)
+2. You can also set them on the server and tell the client what the cookie should be.
+
+# cookie property (you see them in application tab as well) 
+  > Secure   : secure means that this cookie can only be accessible by a secure website. something that start with 'https'
+  > HttpOnly : means 'only accessible by the server'. and you can't access the cookie inside the javascript.
+
+
+> so if you are going to store something like 'json web token', or 'some authentication information' (store it in 'HttpOnly' cookie)
+> make all your cookie 'secure : true'. by default.
+
+> generally anything security related you wanna make 'httpOnly : true'.
+> any cookie that you  don't want in client make its 'httpOnly : true'.
+
+> you should only use cookie when you are doing server to client communication.
+
+
+> Local storage and session storage are much better. if you don't need to communicate with the server.
+  

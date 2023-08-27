@@ -4,3 +4,4 @@ dist/
 coverage/
 cypress/
 cypress.config.js
+.env
