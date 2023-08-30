@@ -1,25 +1,22 @@
+import { clear, drawCircle, drawSquare, drawSquareOutline } from "./draw.js";
+
 const canvas = document.createElement("canvas");
 canvas.height = window.innerHeight - 20;
 canvas.width = window.innerWidth - 20;
 document.body.append(canvas);
 
-const context = canvas.getContext("2d");
+drawSquare(canvas, { x: 50, y: 50, size: 200, color: "red" });
 
-// draw square
-context.fillStyle = "red";
-context.fillRect(50, 50, 200, 200);
+drawSquareOutline(canvas, {
+  x: 300,
+  y: 50,
+  size: 200,
+  color: "blue",
+  lineWidth: 20,
+});
 
-// draw square outline
-context.strokeStyle = "blue";
-context.lineWidth = 20;
-context.strokeRect(300, 50, 200, 200);
-
-// draw circle
-context.fillStyle = "green";
-context.arc(650, 150, 100, 0, Math.PI * 2);
-context.fill();
+drawCircle(canvas, { x: 650, y: 150, size: 100, color: "green" });
 
 document.addEventListener("keypress", (e) => {
-  if (e.key === "c")
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+  if (e.key === "c") clear(canvas);
 });

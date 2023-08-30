@@ -146,7 +146,20 @@ around your code.
 entire code.
 
 > facade is going to look nice and hide all the complexity of original code.
+> what we are doing in facade pattern is we are taking in the complex code and we are creating an simple interface for this code.
+> facade pattern creates the black-boxes and abstractions for you.
 
+
+> with facade pattern. our actual implementation of function where we are calling it never changes.
+ex: getFetch(url,params); lets say we create function that call api using fetch. and then we use this function in many places. now in 
+future we wanna change it to use the axios. so we would need to change it only in one place inside getFetch() function and only.
+and your implementation where you are using this method will never change
+
+
+> just understand this. YOu can clean up your code by creating simpler function or simpler classes. That kind wrap all the complex logic 
+and then expose a simpler interface. that is important to understand.
+
+> anytime you have complex logic. It is good idea to figure out how can you change this to make it a simpler function.
 
 
 
