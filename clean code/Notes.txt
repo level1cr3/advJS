@@ -1,0 +1,155 @@
+# clean code.
+> you only learn it by writing code, reading code and maintaining a project for extended period of time.
+
+====================================================================================================================
+# Basics
+
+> clean code is the idea of making your code easy to read and easy to change in the future.
+> one of the way you can improve the cleanliness of your code is by focusing on readability then write-ability.
+> refactor your code to make it more readable. on your first draft of the code it won't be easy to follow. 
+So going back and refactoring your code now that you know how it should be can improve readability
+
+> one way we could make our code easier to read is by making it really simple. try to make your code as simple as possible.
+> when we start adding the complex thing into your code it becomes actually harder to read. (only use when necessary )
+
+> another way to improve the readability is by naming. writing good variable names and good function names.
+
+> priorities smaller function and smaller files. pretty much smaller everything.
+> make your files no bigger then 1000 lines.
+> same thing for functions try to make your functions shorter.  Don't make it like 300 lines.
+
+
+> Think about testing when your writing your code. If you are thinking about how your code is going to be tested. Generally its going 
+to make you write the better code.
+
+
+> Anytime you can remove a code. It is always a good thing (If code is absolutely not necessary remove it don't comment it.)
+
+
+> setup rules that you follow. like how name variable, functions and how your file lengths are. Give yourself rules and 
+follow them.
+
+
+
+====================================================================================================================
+# Code Order. (order of your code, file structure)
+
+> It should be easier for you to follow. and makes the most important information of the code easiest to find and the 
+less important information harder to find.
+
+> with code. It a lot easier to find things that are at the top of your file. but things that are in middle or end are not easier to find.
+> ex like global variable are defined at top because they are used almost in many places. so private functions should be below.
+> helper functions should be in below part of your application.
+
+> In js you should have separate small files. 
+ex(one file that will interact with UI, and another that logic only and doesn't know about UI)
+> function that server a single purpose should be in separate file.
+
+
+> define the variable where you need them instead of always defining them at the top.
+
+# high level picture of actually laying out your file and folder structure.
+> ex: like putting all your source code inside the src folder. and test inside the test folder inside the src.
+> you need to figure out what is the best file structure for your project. 
+
+
+
+
+
+
+
+====================================================================================================================
+# Comments
+
+> Generally the Comments are not really needed in the most scenarios.
+> Generally if you are writing a lot of Comments means your code is not written in proper way or your comments should be moved to 
+the documentation.
+
+> comment shouldn't explain what a function does or what a variable is. It should be clear from naming of that number.
+> don't use magic numbers or strings. save them in variable and then use that variable instead.
+
+> your variable name should be good and your function name should be self explanatory.
+
+> if your function is too big. and you don't have good name for it and your function starts to do 10 different things init. That is 
+when you have the problem.
+
+> your function should be small and they should each do the one singular thing.
+
+> comments are really useful when you are starting out a project or starting on a function. It is really useful to write 
+step by step of what that function should do how it is going to work. and once you are done with step 1. remove that comments.
+
+
+> comments are useful when you are writing a complex code. not only explaining what code does also explaining why you did that.
+
+> comments should be used to explain regEx because they are hard to read . with example like ex : matches (2+2).
+
+
+> comments should be used to explain why something exists or how a complex thing works.
+
+
+
+====================================================================================================================
+# Coupling and cohesion.
+
+> Coupling : is just how inter linked 2 different modules, files  or piece of codes are.
+            > If you have a code that is very linked to one another through a lot of different ways such as if they directly modify 
+            each other. or they call each other bunch of time. then you have highly coupled set of modules.
+
+            > In programming high Coupling is bad. You want to have the lowest Coupling possible. Essentially you want your modules to 
+            depend upon least amount of other modules possible. That if i make change in one file. hopefully it doesn't make any 
+            changes in other file.
+
+            > less interconnected your code is the better it is going to be.
+
+
+> Cohesion : is opposite of Coupling. And It talks about how well the code in one single module or file conforms to one single blueprint.
+            so how interconnected are code in one particular file.
+
+            > Basically highly related things should be in the same file. 
+
+            > high cohesion is good. because that means your files and modules do one thing and one thing only. and they all are 
+            concentrated on doing that one thing.
+
+            > low cohesion means that you have a module or file that does a bunch of different things. Maybe it has bunch of unrelated 
+            function inside of it.
+
+            > business logic and UI logic should be different.            
+
+            > pure functions are really good at being high cohesion. because they only ever do one particular thing. and that one 
+            particular thing doesn't have any side-effects.
+
+            > pure functions are really good at low coupling as well.
+
+
+ > when you write a good think about what is this code touching. 
+ > It is ok to have some coupling. you to reduce the connection points to as few as possible.
+
+
+ > make your functions smaller.
+ > write pure functions.
+
+
+
+
+====================================================================================================================
+# FaCade pattern
+
+> Design patterns are Essentially ways that you can write code that makes it easier to read and makes it cleaner overall.
+
+> problem with design pattern is when you start to learn this design patterns. 
+> You start to put them all over your code because you see the benefits of them. but you start to put them everywhere blindly.
+
+> It is important to learn concept around the design pattern. and kind of learn why these things are useful. and then incorporate it 
+around your code.
+
+>> concept of facade pattern is to take an complex code and to simplify it easier to use code. that you can repeat through out your 
+entire code.
+
+> facade is going to look nice and hide all the complexity of original code.
+
+
+
+
+
+
+
