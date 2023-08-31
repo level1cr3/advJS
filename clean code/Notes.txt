@@ -164,5 +164,23 @@ and then expose a simpler interface. that is important to understand.
 
 
 
+====================================================================================================================
+# Guard clauses
+
+> when you are running a function. and you know that you only want to run that code when particular conditions are met.
+> well Generally you are gonna wrap your code inside a if block.
+
+> But Guard clause is Essentially a opposite. only run something if something is true and if something is not true return from 
+function immediately.
+
+> If you have condition that needs to be checked before running the function and something like that guard clause is the way to go.
+> it reduces nesting.
+> else is optional when you are using a guard clause for the most part.
+
+> In guard clause there are multiple returns. some people might argue that a function should only ever have one return. So you 
+always know which value is returning. But doing so will not make your code clean and every time you have to read entire code to 
+know what is getting returned.
+
+> But when you have guard clause. you only need to read the particular peace of code inside of guard. to know what is being returned. 
 
 
