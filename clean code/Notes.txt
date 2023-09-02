@@ -184,3 +184,18 @@ know what is getting returned.
 > But when you have guard clause. you only need to read the particular peace of code inside of guard. to know what is being returned. 
 
 
+
+====================================================================================================================
+# Composition vs inheritance
+
+> Use inheritance when you have really strict structure that you know is never gonna change. and follows very strict hierarchy
+> Use inheritance only when you there is 'is a' relation like 'cellPhone is a phone'.
+
+> prefer Composition over inheritance.
+> Instead of thinking about object as in what they are. we think of an object as what do they do.
+
+> and we can compose multiple things to create an object. basically in composition. we pass the object in constructor. and we can 
+use that objects functions as we want.
+
+> think in way of composition. how can i make my code more compossible. where i can combine different things and create objects.
+
