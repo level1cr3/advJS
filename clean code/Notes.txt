@@ -199,3 +199,30 @@ use that objects functions as we want.
 
 > think in way of composition. how can i make my code more compossible. where i can combine different things and create objects.
 
+
+====================================================================================================================
+# DRY(Don't repeat yourself)
+
+> This is the idea that you shouldn't repeat your code anywhere at all Essentially.
+> If there is a repeated code then you extract it into function or a class that takes care of that repeated code 
+for you.
+
+> This a great idea in practice and Generally is going to be useful. But there are certain scenarios where this is a 
+bad idea.
+
+> ex : in situation where your code looks kinda similar but doesn't do similar thing. that where you should not use 
+dry.
+
+> a method or function should do one thing only. and a class one logical thing.
+
+> So key is . If the code is identical and its doing the exact same thing for exact same reason. extracting is a good 
+idea.
+
+> But if you similar code and they serve 2 different purpose. that is when you don't follow DRY.
+
+> so always extracting your code is not good. 
+
+
+> The way you should look at it is. If i do this take things that are same and extract them in the function. Will it 
+make change in my code in the future easier if you so then you should do it.
+
